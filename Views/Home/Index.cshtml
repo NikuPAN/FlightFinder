@@ -1,0 +1,26 @@
+﻿@model FlightFinder.Models.FlightInputModel
+@{
+    ViewData["Title"] = "Flight Finder - Count instances of word \"flight\"";
+    ViewData["Author"] = "Author: Tai Pang (Nick) - nick95927@gmail.com on 2024/04/18";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <p>@ViewData["Author"]</p>
+    <div style="padding: 30px;"></div>
+
+    <form asp-controller="Flight" asp-action="CountFlights" method="post">
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" name="inputString" maxlength="100" required />
+        <button type="submit">Count!</button>
+    </form>
+
+    <div style="padding: 30px;"></div>
+
+    <div id="result">
+        @if (Model != null && ViewBag.Count >= 0)
+        {
+            <h2>Number of instances of "flight": @ViewBag.Count</h2>
+        }
+    </div>
+</div>
